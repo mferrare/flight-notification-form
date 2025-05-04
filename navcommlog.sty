@@ -1,0 +1,30 @@
+% navcommlog.sty
+% This package defines a table for NAV/COMM LOG entries.
+% It provides the `\navcommlogtable` command to create a table with the following columns:
+% POSN, ALT, TR (m), HDG (m), G/S, DIST, ETI, EST, ATA, ATD, NAV/COMM.
+% The table includes 8 blank rows for data entry.
+%
+% Parmeters: none
+\ProvidesPackage{navcommlog}[2025/05/04 NAV/COMM LOG table]
+
+\RequirePackage{array}
+
+\newcommand{\navcommlogtable}{%
+{
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{1}%
+\begin{tabular}{|p{2cm}|p{0.9cm}|p{1.1cm}|p{1.4cm}|p{0.7cm}|p{0.9cm}|p{0.8cm}|p{0.9cm}|p{0.8cm}|p{0.9cm}|p{2.5cm}|}
+\hline
+POSN & ALT & TR (m) & HDG (m) & G/S & DIST & ETI & EST & ATA & ATD & NAV/COMM \\ \hline
+% 8 blank rows
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+& & & & & & & & & & \\ \hline
+\end{tabular}%
+}
+}

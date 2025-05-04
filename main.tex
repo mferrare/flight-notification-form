@@ -2,14 +2,20 @@
 \usepackage[margin=5mm]{geometry}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{colortbl}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{fueltanktable}
+\usepackage{navcommlog}
 
 % Define constants
 \newcommand{\boxheight}{0.5cm}
 \newcommand{\boxwidthA}{2.5cm}
 \newcommand{\boxwidthB}{3.5cm}
+
+\setlength{\arrayrulewidth}{0.3pt} % thin vertical rules
 
 % Define custom input box command
 \newcommand{\inputbox}[2]{\fbox{\rule{0pt}{#1}\hspace{#2}}}
@@ -32,7 +38,7 @@
 
 \vspace{0.1cm}
 
-% ETD, TAS, WIND section with macro
+% ETD, TAS, WIND section
 \noindent
 \begin{tabular}{p{4cm} p{4cm} p{4cm}}
 \textbf{ETD} & \textbf{TAS} & \textbf{WIND} \\
@@ -46,56 +52,19 @@
 
 \section*{NAV/COMM LOG}
 
-\setlength{\tabcolsep}{4pt} % reduce column padding
-\renewcommand{\arraystretch}{1} % tighten row height
-
-\begin{longtable}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
-\hline
-POSN & ALT & TR (m) & HDG (m) & G/S & DIST & ETI & EST & ATA & ATD \\ \hline
-\endfirsthead
-\hline
-POSN & ALT & TR (m) & HDG (m) & G/S & DIST & ETI & EST & ATA & ATD \\ \hline
-\endhead
-
-% 8 blank rows
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-& & & & & & & & & \\ \hline
-\end{longtable}
+\navcommlogtable
 
 \section*{Fuel}
-\begin{multicols}{2}
-\textbf{Left Tank (mins)}
-\begin{tabular}{|c|}
-\hline
-180 \\ \hline
-150 \\ \hline
-120 \\ \hline
-90 \\ \hline
-60 \\ \hline
-30 \\ \hline
-Reserve \\ \hline
-\end{tabular}
 
-\columnbreak
-
-\textbf{Right Tank (mins)}
-\begin{tabular}{|c|}
-\hline
-180 \\ \hline
-150 \\ \hline
-120 \\ \hline
-90 \\ \hline
-60 \\ \hline
-30 \\ \hline
-Reserve \\ \hline
-\end{tabular}
-\end{multicols}
+% Call new fuel tank macros
+\noindent
+\begin{minipage}[t]{7.3cm}
+    \fueltanktable{Left Tank}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{7.3cm}
+    \fueltanktable{Right Tank}
+\end{minipage}
 
 \vspace{0.5cm}
 \noindent \textbf{Fuel Summary (mins):} Taxi \hspace{1.5cm} Fixed RES (45) \hspace{1.5cm} VRB RES \hspace{1.5cm} ALTN \hspace{1.5cm} Holding \hspace{1.5cm} Total Fuel
@@ -104,7 +73,6 @@ Reserve \\ \hline
 \section*{Pilot Notes}
 \vspace{3cm}
 
-% Replace 'example-image' with the actual logo file name if available
 \includegraphics[width=0.2\textwidth]{example-image}
 
 \end{document}

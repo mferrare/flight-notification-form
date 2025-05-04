@@ -1,0 +1,46 @@
+% fueltanktable.sty
+% Displays a table of fuel tank levels. Set a maximum level and a minimum level, and the table will show the levels in between.Set a highlight level, and the table will highlight the levels that are multiples of that number.
+% This lets me display a fuel log table for as many tanks as necessary.
+% Parameters:
+% #1: Title of the table
+% #2: Maximum level
+% #3: interval between levels
+% #4: Highlight level
+%
+% fueltanktable.sty
+% Provides \fueltanktable{title}{max}{step}{highlight}
+% Loops from max → 0, outputs rows only on step multiples
+% Adds thick lines on highlight multiples
+% fueltanktable.sty
+%
+% fueltanktable.sty
+\ProvidesPackage{fueltanktable}[2025/05/04 Simple fuel tank table]
+
+\RequirePackage{array}
+
+\newlength{\fuelarrayrulewidth}
+\setlength{\fuelarrayrulewidth}{0.4pt}
+
+\newcommand{\fueltanktable}[1]{%
+\setlength{\arrayrulewidth}{\fuelarrayrulewidth}%
+\begin{tabular}{|p{1cm}|p{2cm}|}
+\hline
+\multicolumn{2}{|c|}{#1} \\ \hline
+\hfill 100 & \\ \hline
+\hfill 90 & \\
+\noalign{\global\setlength{\arrayrulewidth}{0.8pt}} \hline
+\noalign{\global\setlength{\arrayrulewidth}{0.4pt}}
+\hfill 80 & \\ \hline
+\hfill 70 & \\ \hline
+\hfill 60 & \\
+\noalign{\global\setlength{\arrayrulewidth}{0.8pt}} \hline
+\noalign{\global\setlength{\arrayrulewidth}{0.4pt}}
+\hfill 50 & \\ \hline
+\hfill 40 & \\ \hline
+\hfill 30 & \\
+\noalign{\global\setlength{\arrayrulewidth}{0.8pt}} \hline
+\noalign{\global\setlength{\arrayrulewidth}{0.4pt}}
+\hfill 20 & \\ \hline
+\hfill 10 & \\ \hline
+\end{tabular}%
+}
