@@ -23,6 +23,11 @@
 % Define checkbox command
 \newcommand{\checkbox}{\fbox{\rule{0pt}{0.3cm}\hspace{0.3cm}}}
 
+% Custom command: double horizontal rule
+\newcommand{\doubleline}{%
+  \noindent\rule{\textwidth}{0.2pt}\\[-10pt]
+  \noindent\rule{\textwidth}{0.2pt}%
+}
 \begin{document}
 
 \small
@@ -31,9 +36,11 @@
 % CALLSIGN, TYPE, SARTIME, BLANK column
 \noindent
 \begin{tabular}{p{3cm} p{3cm} p{3cm} p{3cm}}
-\textbf{CALLSIGN} & \textbf{TYPE} & \textbf{SARTIME} & ~ \\
-\inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
-& & {\tiny UTC} & {\tiny LOCAL} \\
+    \textbf{CALLSIGN}                 & \textbf{TYPE}                     & \textbf{SARTIME}                  & ~                                 \\
+    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
+                                      &                                   & {\tiny UTC}                       & {\tiny LOCAL}                     \\
+    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
+    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
 \end{tabular}
 
 \vspace{0.1cm}
@@ -41,14 +48,20 @@
 % ETD, TAS, WIND section
 \noindent
 \begin{tabular}{p{4cm} p{4cm} p{4cm}}
-\textbf{ETD} & \textbf{TAS} & \textbf{WIND} \\
-\inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} \\
+    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
+    \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} \\
 \end{tabular}
 
 \vspace{0.3cm}
 
 % Checkboxes line
-\noindent \textbf{GAF} \checkbox \hspace{1cm} \textbf{WIND} \checkbox \hspace{1cm} \textbf{NOTAM} \checkbox
+\doubleline
+\vspace{0.3cm}
+\begin{center}
+    \textbf{GAF} \checkbox \hspace{1cm} \textbf{WIND} \checkbox \hspace{1cm} \textbf{NOTAM} \checkbox
+\end{center}
+\par
+\doubleline
 
 \section*{NAV/COMM LOG}
 
@@ -73,6 +86,6 @@
 \section*{Pilot Notes}
 \vspace{3cm}
 
-\includegraphics[width=0.2\textwidth]{example-image}
+%\includegraphics[width=0.2\textwidth]{example-image}
 
 \end{document}
