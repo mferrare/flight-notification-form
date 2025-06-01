@@ -11,8 +11,8 @@
 \usepackage{navcommlog}
 
 % Define constants
-\newcommand{\boxheight}{0.5cm}
-\newcommand{\boxwidthA}{2.5cm}
+\newcommand{\boxheight}{0.2cm}
+\newcommand{\boxwidthA}{3.5cm}
 \newcommand{\boxwidthB}{3.5cm}
 
 \setlength{\arrayrulewidth}{0.3pt} % thin vertical rules
@@ -35,22 +35,38 @@
 
 % CALLSIGN, TYPE, SARTIME, BLANK column
 \noindent
-\begin{tabular}{p{3cm} p{3cm} p{3cm} p{3cm}}
-    \textbf{CALLSIGN}                 & \textbf{TYPE}                     & \textbf{SARTIME}                  & ~                                 \\
-    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
-                                      &                                   & {\tiny UTC}                       & {\tiny LOCAL}                     \\
-    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
-    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
-\end{tabular}
+{%
+    \setlength{\tabcolsep}{0pt}
+    \begin{tabular}{@{}p{4cm} @{}p{4cm} @{}p{5.7cm}} 
+        \textbf{CALLSIGN} & \textbf{TYPE} & \textbf{SARTIME}
+    \end{tabular}
+    \begin{tabular}{@{}p{4cm} @{}p{4cm} @{}p{3.2cm} @{}p{2.5cm}}
+        \inputbox{\boxheight}{3.5cm} & \inputbox{\boxheight}{3.5cm} & \inputbox{\boxheight}{2.7cm} & \inputbox{\boxheight}{2.2cm}
+    \end{tabular}
+
+    \vspace{0.5em}
+
+    \begin{tabular}{@{}p{1.9cm} @{}p{2cm} @{}p{4cm} @{}p{3.2cm} @{}p{2.5cm}}
+        \textbf{ETD} & \textbf{TAS} & \textbf{WIND} & \textbf{UTC} & \textbf{LOCAL}
+    \end{tabular}
+}
+%        \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
+%    \end
+%\begin{tabluar}
+%    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
+%                                      &                                   & {\tiny UTC}                       & {\tiny LOCAL}                     \\
+%    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
+%    \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} & \inputbox{\boxheight}{\boxwidthA} \\
+%\end{tabular}
 
 \vspace{0.1cm}
 
 % ETD, TAS, WIND section
-\noindent
-\begin{tabular}{p{4cm} p{4cm} p{4cm}}
-    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
-    \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} \\
-\end{tabular}
+%\noindent
+%\begin{tabular}{p{4cm} p{4cm} p{4cm}}
+%    \textbf{ETD}                      & \textbf{TAS}                      & \textbf{WIND}                     \\
+%    \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} & \inputbox{\boxheight}{\boxwidthB} \\
+%\end{tabular}
 
 \vspace{0.3cm}
 
@@ -58,7 +74,7 @@
 \doubleline
 \vspace{0.3cm}
 \begin{center}
-    \textbf{GAF} \checkbox \hspace{1cm} \textbf{WIND} \checkbox \hspace{1cm} \textbf{NOTAM} \checkbox
+    \textbf{GAF} \checkbox \hspace{1cm} \textbf{GPWT} \checkbox \hspace{1cm} \textbf{NOTAM} \checkbox
 \end{center}
 \par
 \doubleline
